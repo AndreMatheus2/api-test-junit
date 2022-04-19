@@ -102,7 +102,7 @@ class UserResourceTest {
         when(service.upDate(userDTO)).thenReturn(user);
         when(mapper.map(any(), any())).thenReturn(userDTO);
 
-        ResponseEntity<UserDTO> response = resource.upDate(ID, userDTO);
+        ResponseEntity<UserDTO> response = resource.update(ID, userDTO);
 
         assertNotNull(response);
         assertNotNull(response.getBody());

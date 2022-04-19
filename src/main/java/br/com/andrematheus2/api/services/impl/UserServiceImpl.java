@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
-    public List<User> findAll(){
+    public List<User> findAll() {
         return repository.findAll();
     }
 
@@ -51,10 +51,9 @@ public class UserServiceImpl implements UserService {
     }
 
     private void findByEmail(UserDTO obj) {
-        Optional<User> user = repository.findyByEmail(obj.getEmail());
-        if (user.isPresent() && !user.get().getId().equals(obj.getId())) {
-            throw new DataIntegratyViolationException("Email Já Cadastrado");
+        Optional<User> user = repository.findByEmail(obj.getEmail());
+        if(user.isPresent() && !user.get().getId().equals(obj.getId())) {
+            throw new DataIntegratyViolationException("E-mail já cadastrado no sistema");
         }
     }
-
 }

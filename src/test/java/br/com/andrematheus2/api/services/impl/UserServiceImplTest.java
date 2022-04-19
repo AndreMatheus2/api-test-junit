@@ -110,7 +110,7 @@ class UserServiceImplTest {
 
     @Test
     void whenCreatedThenReturnAnDataIntegratyViolationException() {
-        when(repository.findyByEmail(anyString())).thenReturn(optionalUser);
+        when(repository.findByEmail(anyString())).thenReturn(optionalUser);
 
         try {
             optionalUser.get().setId(2);
@@ -137,7 +137,7 @@ class UserServiceImplTest {
 
     @Test
     void whenUpDateThenReturnAnDataIntegratyViolationException() {
-        when(repository.findyByEmail(anyString())).thenReturn(optionalUser);
+        when(repository.findByEmail(anyString())).thenReturn(optionalUser);
 
         try {
             optionalUser.get().setId(2);
